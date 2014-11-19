@@ -1,0 +1,9 @@
+a.out
+*/a.out
+*/*/a.out
+*.pyc
+*/*.pyc
+.sass_cache/
+node_modules/
+*/node_modules/
+*/*/node_modules/

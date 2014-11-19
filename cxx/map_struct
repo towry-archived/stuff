@@ -1,0 +1,30 @@
+/* nothing here */
+#include <stdio.h>
+#include <stdlib.h>
+
+#define MAP_ERROR(XX)                                                   \
+    XX(OK, "success")                                                   \
+    XX(CB_message_begin, "the on_message_begin callback failed")        \
+
+#define ERROR_GEN(n, s) HPE_##n,
+enum http_errno {
+    MAP_ERROR(ERROR_GEN)
+};
+#undef ERROR_GEN
+
+
+struct mystruct {
+    int http_errno : 7;
+};
+
+#define PARSER_ERROR(p)         ((enum http_errno) (p)->http_errno)
+
+int
+main(void) {
+    struct mystruct *p;
+    p = malloc(sizeof(struct mystruct));
+    p->http_errno = HPE_OK;
+
+    printf("%d\n", PARSER_ERROR(p));
+
+}
