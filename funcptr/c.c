@@ -1,11 +1,13 @@
 #include <stdio.h>
 
-extern void (*callback)(int);
+void (*callback)(int);
+
+extern int c;
 
 void run()
 {
 	if (callback) {
-		callback(2);
+		callback(c);
 	} else {
 		printf("Nothing here\n");
 	}
