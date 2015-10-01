@@ -1,6 +1,4 @@
-a.out
-*/a.out
-*/*/a.out
+*/*.out
 *.pyc
 */*.pyc
 .sass_cache/
