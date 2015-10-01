@@ -19,7 +19,7 @@ main ()
   A b = {2};
   // this is direct-list-initialization, but 
   // since we are not provide an proper constructor
-  // so below will not work.
+  // so A b(2) will not work. and A b{2} is c++0x
   // A b {2} or A b(2)
 
   // will output 2
